@@ -39,6 +39,10 @@ Contributions are welcome! If you would like to contribute to the project, pleas
 4. Push your changes to your forked repository.
 5. Open a pull request, describing the changes you made.
 
+## Design 
+![WPFAppImage](https://github.com/Teocelik/E-Shopping/assets/118806293/5b316f12-778c-4ce2-9a08-06f12650793a)
+
+
 ## License
 
 This project have no licence.
