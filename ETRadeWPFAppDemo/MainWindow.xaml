@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:ETRadeWPFAppDemo"
         mc:Ignorable="d"
        
-        MinHeight="500" MinWidth="800" ResizeMode="NoResize" Background="White" WindowStartupLocation="CenterScreen" WindowStyle="None" Foreground="MediumVioletRed">
+        MinHeight="600" MinWidth="800" Height="Auto" Width="Auto" Background="White" WindowStartupLocation="CenterScreen" Foreground="MediumVioletRed">
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -34,12 +34,105 @@
             <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
         </EventTrigger>
     </Window.Triggers>
-    <Grid Background="LightGray">
+    <Grid x:Name="grdMain" Background="LightGray">
 
-        <Border Height="400" Width="250" Margin="0,100,454,20" Background="White" CornerRadius="20">
+       
+        
 
-            <Grid>
-                <TextBox Text="Categories" FontSize="20" Margin="70,23,50,350" BorderThickness="0" FontWeight="Bold"/>
+       
+
+
+        <!-- message -->
+        <Grid x:Name="dgwMessage"  VerticalAlignment="Bottom" Visibility="Collapsed" Width="395" Height="80" Margin="5,0,0,330" Background="White">
+            <TextBlock x:Name="tbMessage"  Text="No result found!" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible" FontSize="15">
+
+            </TextBlock>
+        </Grid>
+
+        <Grid x:Name="dgwListByName" Width="395" Height="80" Margin="5,0,0,330" Background="White" Visibility="Collapsed" Panel.ZIndex="1">
+            <Grid.Resources>
+                <DataTemplate x:Key="ProductTemplate">
+                    <TextBlock Text="{Binding ProductName}"/>
+                </DataTemplate>
+            </Grid.Resources>
+            
+            <ListBox x:Name="ListProductByName" ItemTemplate="{StaticResource ProductTemplate}" />
+
+
+        </Grid>
+       
+        <!-- Border of categories -->
+        <Border x:Name="brdrCategories" Height="Auto" Width="Auto" Margin="50,0,0,0" Background="White" CornerRadius="20" HorizontalAlignment="Left" VerticalAlignment="Center" >
+
+            <Grid Width="Auto" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                <Button x:Name="btnBaverages" Width="250" Height="30" Margin="0,0,0,200" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White" Click="btnBaverages_Click">
+                    <StackPanel Orientation="Horizontal" Width="250">
+                        <materialDesign:PackIcon Kind="Beverages" Width="25" Height="25"/>
+                        <TextBlock Text="Beverages" VerticalAlignment="Center"  Margin="10,0,0,0" FontSize="20" Width="210"/>
+                    </StackPanel>
+                </Button>
+
+                <Button  Width="250" Height="30" Margin="0,80,0,200" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White">
+                    <StackPanel Orientation="Horizontal" Width="250">
+                        <materialDesign:PackIcon Kind="shaker" Width="25" Height="25"/>
+                        <TextBlock Text="Condiments" VerticalAlignment="Center"  Margin="10,0,0,0" FontSize="20" Width="210"/>
+
+                    </StackPanel>
+                </Button>
+
+                <Button Width="250" Height="30" Margin="0,160,0,200" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White">
+                    <StackPanel Orientation="Horizontal" Width="250">
+                        <materialDesign:PackIcon Kind="Candy" Width="25" Height="25"/>
+                        <TextBlock Text="Confections" VerticalAlignment="Center"  Margin="10,0,0,0" FontSize="20" Width="210"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Width="250" Height="30" Margin="0,40,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White">
+                    <StackPanel Orientation="Horizontal" Width="250">
+                        <materialDesign:PackIcon Kind="Cheese" Width="25" Height="25"/>
+                        <TextBlock Text="Dairy Products" VerticalAlignment="Center"  Margin="10,0,0,0" FontSize="20" Width="210"/>
+                    </StackPanel>
+
+                </Button>
+
+                <Button Width="250" Height="30" Margin="0,120,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White">
+                    <StackPanel Orientation="Horizontal" Width="250">
+                        <materialDesign:PackIcon Kind="Wheat" Width="25" Height="25"/>
+                        <TextBlock Text="Grains/Cereals" VerticalAlignment="Center"  Margin="10,0,0,0" FontSize="20" Width="210"/>
+                    </StackPanel>
+
+                </Button>
+
+
+                <Button Width="250" Height="30" Margin="0,198,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White">
+                    <StackPanel Orientation="Horizontal" Width="250">
+                        <materialDesign:PackIcon Kind="Meat" Width="25" Height="25"/>
+                        <TextBlock Text="Meat/Poultry" VerticalAlignment="Center"  Margin="10,0,0,0" FontSize="20" Width="210"/>
+                    </StackPanel>
+
+                </Button>
+
+                <Button Width="250" Height="30" Margin="0,278,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White">
+                    <StackPanel Orientation="Horizontal" Width="250">
+                        <materialDesign:PackIcon Kind="Worker" Width="25" Height="25"/>
+                        <TextBlock Text="Produce" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" FontSize="20" Width="210"/>
+
+                    </StackPanel>
+                </Button>
+
+                <Button  Width="250" Height="30" Margin="0,358,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White">
+                    <StackPanel Orientation="Horizontal" Width="250">
+                        <materialDesign:PackIcon Kind="Fish" Width="25" Height="25"/>
+                        <TextBlock Text="Seafood" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" FontSize="20" Width="210"/>
+                    </StackPanel>
+
+                </Button>
+
+
+
+
+                <TextBox Text="Categories" FontSize="20" Margin="70,33,50,350" BorderThickness="0" FontWeight="Bold" IsReadOnly="True"/>
 
                 <StackPanel Height="20" Width="35" Margin="0,0,170,329" Background="White">
                     <Rectangle Width="40" Height="2" Fill="Black" Margin="0,0,0,4"/>
@@ -47,9 +140,12 @@
                     <Rectangle Width="40" Height="2" Fill="Black" Margin="0,3,0,4"/>
                 </StackPanel>
 
+                <!-- A list to listed to the category names -->
+
+
+
             </Grid>
         </Border>
-
 
 
         <!-- Grid'e satır ekleyelim -->
@@ -58,8 +154,8 @@
             <TextBlock Text="E-Shopping" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="70,0,0,0" FontSize="22">
 
             </TextBlock>
-            <Border x:Name="TbxSearch" Width="400" Height="30" Margin="5,8,0,0"  BorderBrush="Red" BorderThickness="1" CornerRadius="8">
-
+            <Border Width="400" Height="30" Margin="5,8,0,0" BorderBrush="Red" BorderThickness="1" CornerRadius="8">
+                <TextBox x:Name="TbxSearch" Background="Transparent" BorderThickness="0" Padding="5" TextChanged="TbxSearch_TextChanged"/>
             </Border>
 
             <Border Height="30" Width="40" Margin="364.35,8,0,0" Background="Red" BorderBrush="Transparent">
@@ -69,17 +165,17 @@
                 </Border.CornerRadius>
 
 
-                <Button x:Name="ButtonSearch" Background="Red" >
+                <Button x:Name="ButtonSearch" Background="Red" Click="ButtonSearch_Click" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Width="40" >
                     <materialDesign:PackIcon Kind="Magnify" Foreground="White" Height="30" Width="30"/>
                 </Button>
             </Border>
 
-            <Button x:Name="BtnSearch" Height="30" Width="40"  Margin="490.35,8,0,0" Background="White" BorderBrush="Transparent" BorderThickness="0">
+            <Button x:Name="ButtonBasket" Height="30" Width="40"  Margin="490.35,8,0,0" Background="White" BorderBrush="Transparent" BorderThickness="0" Click="ButtonBasket_Click">
                 <materialDesign:PackIcon Kind="Cart"  Height="30" Width="30" Foreground="Red"/>
 
             </Button>
 
-            <Button x:Name="ButtonSingIn" Height="30" Width="90" Margin="650.35,8,0,0" BorderBrush="Transparent" BorderThickness="0" Background="White">
+            <Button x:Name="ButtonSingIn" Height="30" Width="90" Margin="650.35,8,0,0" BorderBrush="Transparent" BorderThickness="0" Background="White" Click="ButtonSingIn_Click">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Template">
@@ -115,9 +211,8 @@
             <StackPanel>
                 <Grid Height="70" Background="Gray">
                     <Button x:Name="ButtonCloseMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
-                        <materialDesign:PackIcon Foreground="White" Kind="ArrowLeft" Width="25" Height="25" Visibility="Visible" />
+                        <materialDesign:PackIcon Foreground="White" Kind="ArrowLeft" Width="25" Height="25" Visibility="Visible"/>
                     </Button>
-
 
                     <Button x:Name="ButtonOpenMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
                         <materialDesign:PackIcon Foreground="White" Kind="Menu" Width="25" Height="25" Margin="10,0,0,0" Visibility="Visible"/>
@@ -125,22 +220,27 @@
 
                 </Grid>
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="LightGray" Foreground="Black">
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Home" Width="25" Height="25" VerticalAlignment="Center"/>
+                    <Button x:Name="ButtonHome" Height="60" Background="Transparent" BorderBrush="Transparent" Click="ButtonHome_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <materialDesign:PackIcon Kind="Home" Width="25" Height="25" VerticalAlignment="Center"/>
+                                    <TextBlock Text="Home" VerticalAlignment="Center" Margin="37,3,0,0" FontSize="18"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
 
-                            <TextBlock Text="Home" VerticalAlignment="Center" Margin="10,3,0,0"  FontSize="18"/>
-
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="BoxView" Width="25" Height="25" VerticalAlignment="Center"/>
-
-                            <TextBlock Text="My orders" VerticalAlignment="Center" Margin="10,3,0,0"  FontSize="18"/>
-
-                        </StackPanel>
-                    </ListViewItem>
+                    <Button x:Name="ButtonOrders" Height="60" Background="Transparent" BorderBrush="Transparent" Click="ButtonOrders_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <materialDesign:PackIcon Kind="BoxView" Width="25" Height="25" VerticalAlignment="Center"/>
+                                    <TextBlock Text="My orders" VerticalAlignment="Center" Margin="37,3,0,0" FontSize="18"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
 
                 </ListView>
             </StackPanel>
