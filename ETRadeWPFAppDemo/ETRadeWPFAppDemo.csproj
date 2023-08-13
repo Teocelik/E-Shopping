@@ -90,6 +90,7 @@
     </Compile>
     <Compile Include="Context\NorthwindContext.cs" />
     <Compile Include="DAL\ProductDal.cs" />
+    <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -122,6 +123,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Baverage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Condiment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Confections.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\dairyProducts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\GrainsCereals.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\MeatPoultry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Producee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Seafood.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

@@ -23,6 +23,22 @@
                 <EasingDoubleKeyFrame KeyTime="0" Value="50"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+
+
+        <Storyboard x:Key="PanelOpen">
+            
+        </Storyboard>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </Window.Resources>
 
     <Window.Triggers>
@@ -34,13 +50,11 @@
             <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
         </EventTrigger>
     </Window.Triggers>
+
+
+    
+    
     <Grid x:Name="grdMain" Background="LightGray">
-
-       
-        
-
-       
-
 
         <!-- message -->
         <Grid x:Name="dgwMessage"  VerticalAlignment="Bottom" Visibility="Collapsed" Width="395" Height="80" Margin="5,0,0,330" Background="White">
@@ -62,95 +76,12 @@
         </Grid>
        
         <!-- Border of categories -->
-        <Border x:Name="brdrCategories" Height="Auto" Width="Auto" Margin="50,0,0,0" Background="White" CornerRadius="20" HorizontalAlignment="Left" VerticalAlignment="Center" >
-
-            <Grid Width="Auto" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Center">
-
-                <Button x:Name="btnBaverages" Width="250" Height="30" Margin="0,0,0,200" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White" Click="btnBaverages_Click">
-                    <StackPanel Orientation="Horizontal" Width="250">
-                        <materialDesign:PackIcon Kind="Beverages" Width="25" Height="25"/>
-                        <TextBlock Text="Beverages" VerticalAlignment="Center"  Margin="10,0,0,0" FontSize="20" Width="210"/>
-                    </StackPanel>
-                </Button>
-
-                <Button  Width="250" Height="30" Margin="0,80,0,200" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White">
-                    <StackPanel Orientation="Horizontal" Width="250">
-                        <materialDesign:PackIcon Kind="shaker" Width="25" Height="25"/>
-                        <TextBlock Text="Condiments" VerticalAlignment="Center"  Margin="10,0,0,0" FontSize="20" Width="210"/>
-
-                    </StackPanel>
-                </Button>
-
-                <Button Width="250" Height="30" Margin="0,160,0,200" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White">
-                    <StackPanel Orientation="Horizontal" Width="250">
-                        <materialDesign:PackIcon Kind="Candy" Width="25" Height="25"/>
-                        <TextBlock Text="Confections" VerticalAlignment="Center"  Margin="10,0,0,0" FontSize="20" Width="210"/>
-                    </StackPanel>
-                </Button>
-
-                <Button Width="250" Height="30" Margin="0,40,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White">
-                    <StackPanel Orientation="Horizontal" Width="250">
-                        <materialDesign:PackIcon Kind="Cheese" Width="25" Height="25"/>
-                        <TextBlock Text="Dairy Products" VerticalAlignment="Center"  Margin="10,0,0,0" FontSize="20" Width="210"/>
-                    </StackPanel>
-
-                </Button>
-
-                <Button Width="250" Height="30" Margin="0,120,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White">
-                    <StackPanel Orientation="Horizontal" Width="250">
-                        <materialDesign:PackIcon Kind="Wheat" Width="25" Height="25"/>
-                        <TextBlock Text="Grains/Cereals" VerticalAlignment="Center"  Margin="10,0,0,0" FontSize="20" Width="210"/>
-                    </StackPanel>
-
-                </Button>
-
-
-                <Button Width="250" Height="30" Margin="0,198,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White">
-                    <StackPanel Orientation="Horizontal" Width="250">
-                        <materialDesign:PackIcon Kind="Meat" Width="25" Height="25"/>
-                        <TextBlock Text="Meat/Poultry" VerticalAlignment="Center"  Margin="10,0,0,0" FontSize="20" Width="210"/>
-                    </StackPanel>
-
-                </Button>
-
-                <Button Width="250" Height="30" Margin="0,278,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White">
-                    <StackPanel Orientation="Horizontal" Width="250">
-                        <materialDesign:PackIcon Kind="Worker" Width="25" Height="25"/>
-                        <TextBlock Text="Produce" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" FontSize="20" Width="210"/>
-
-                    </StackPanel>
-                </Button>
-
-                <Button  Width="250" Height="30" Margin="0,358,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Transparent" Background="White">
-                    <StackPanel Orientation="Horizontal" Width="250">
-                        <materialDesign:PackIcon Kind="Fish" Width="25" Height="25"/>
-                        <TextBlock Text="Seafood" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" FontSize="20" Width="210"/>
-                    </StackPanel>
-
-                </Button>
-
-
-
-
-                <TextBox Text="Categories" FontSize="20" Margin="70,33,50,350" BorderThickness="0" FontWeight="Bold" IsReadOnly="True"/>
-
-                <StackPanel Height="20" Width="35" Margin="0,0,170,329" Background="White">
-                    <Rectangle Width="40" Height="2" Fill="Black" Margin="0,0,0,4"/>
-                    <Rectangle Width="40" Height="2" Fill="Black" Margin="0,3,0,4"/>
-                    <Rectangle Width="40" Height="2" Fill="Black" Margin="0,3,0,4"/>
-                </StackPanel>
-
-                <!-- A list to listed to the category names -->
-
-
-
-            </Grid>
-        </Border>
+        
 
 
         <!-- Grid'e satır ekleyelim -->
 
-        <Grid Height="70" VerticalAlignment="Top" Background="#FFFFFEFE">
+        <Grid x:Name="grdHorizontal" Height="70" VerticalAlignment="Top" Background="#FFFFFEFE" Panel.ZIndex="1">
             <TextBlock Text="E-Shopping" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="70,0,0,0" FontSize="22">
 
             </TextBlock>
@@ -204,7 +135,7 @@
 
         </Grid>
         <!-- Grid'e sütun ekleyelim -->
-        <Grid x:Name="GridMenu" Width="45" HorizontalAlignment="Left" Background="White">
+        <Grid x:Name="GridMenu" Width="45" HorizontalAlignment="Left" Background="White" Panel.ZIndex="1">
 
             <Line X1="0" Y1="0" X2="200" Y2="0" Stroke="Gray" StrokeThickness="3" Margin="0,450,0,50"/>
 

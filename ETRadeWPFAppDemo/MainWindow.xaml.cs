@@ -2,8 +2,10 @@
 using ETRadeWPFAppDemo.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,9 +17,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
+using Image = System.Windows.Controls.Image;
 
 namespace ETRadeWPFAppDemo
 {
+
+
+
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -26,7 +34,23 @@ namespace ETRadeWPFAppDemo
         public MainWindow()
         {
             InitializeComponent();
+            CategoriesMenu();
         }
+
+
+        public List<UIElement> ElementsToKeep()
+        {
+            List<UIElement> elementsToKeep = new List<UIElement>();
+
+            elementsToKeep.Add(grdHorizontal);
+            elementsToKeep.Add(GridMenu);
+            //elementsToKeep.Add(brdrCategories);
+
+            return elementsToKeep;
+            
+        }
+
+
 
         ProductDal _productDal = new ProductDal();
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
@@ -43,6 +67,13 @@ namespace ETRadeWPFAppDemo
 
         private void ButtonHome_Click(object sender, RoutedEventArgs e)
         {
+            grdMain.Children.Clear();
+            grdMain.Children.Add(grdHorizontal);
+            grdMain.Children.Add(GridMenu);
+            
+
+            CategoriesMenu();
+
 
         }
 
@@ -61,6 +92,364 @@ namespace ETRadeWPFAppDemo
 
         }
 
+        //------------------------------------------------------------------
+
+
+
+        private void Baverage_Click(object sender, RoutedEventArgs e)
+        {
+            grdMain.Children.Clear();
+
+            List<UIElement> elementsToKeep = ElementsToKeep();
+
+            var zIndex = 1;
+            foreach (var element in elementsToKeep)
+            {
+                grdMain.Children.Add(element);
+
+                Panel.SetZIndex(element, zIndex++);
+            }
+
+
+
+            List<Product> filteredProducts = _productDal.GetByCategory(1);
+
+            ScrollViewer scrollViewer = FilteredByCategoriesMethod(filteredProducts);
+
+            grdMain.Children.Add(scrollViewer);
+        }
+
+        //---
+
+        private void Condiment_Click(object sender, RoutedEventArgs e)
+        {
+            grdMain.Children.Clear();
+
+            List<UIElement> elementsToKeep = ElementsToKeep();
+
+            var zIndex = 1;
+            foreach (var element in elementsToKeep)
+            {
+                grdMain.Children.Add(element);
+
+                Panel.SetZIndex(element, zIndex++);
+            }
+
+
+
+            List<Product> filteredProducts = _productDal.GetByCategory(2);
+
+            ScrollViewer scrollViewer = FilteredByCategoriesMethod(filteredProducts);
+
+            grdMain.Children.Add(scrollViewer);
+        }
+
+        //--
+
+        private void Confections_Click(object sender, RoutedEventArgs e)
+        {
+            grdMain.Children.Clear();
+
+            List<UIElement> elementsToKeep = ElementsToKeep();
+
+            var zIndex = 1;
+            foreach (var element in elementsToKeep)
+            {
+                grdMain.Children.Add(element);
+
+                Panel.SetZIndex(element, zIndex++);
+            }
+
+
+
+            List<Product> filteredProducts = _productDal.GetByCategory(3);
+
+            ScrollViewer scrollViewer = FilteredByCategoriesMethod(filteredProducts);
+
+            grdMain.Children.Add(scrollViewer);
+        }
+
+        private void dairyProducts_Click(object sender, RoutedEventArgs e)
+        {
+            grdMain.Children.Clear();
+
+            List<UIElement> elementsToKeep = ElementsToKeep();
+
+            var zIndex = 1;
+            foreach (var element in elementsToKeep)
+            {
+                grdMain.Children.Add(element);
+
+                Panel.SetZIndex(element, zIndex++);
+            }
+
+
+
+            List<Product> filteredProducts = _productDal.GetByCategory(4);
+
+            ScrollViewer scrollViewer = FilteredByCategoriesMethod(filteredProducts);
+
+            grdMain.Children.Add(scrollViewer);
+        }
+
+
+        private void GrainsCereals_Click(object sender, RoutedEventArgs e)
+        {
+            grdMain.Children.Clear();
+
+            List<UIElement> elementsToKeep = ElementsToKeep();
+
+            var zIndex = 1;
+            foreach (var element in elementsToKeep)
+            {
+                grdMain.Children.Add(element);
+
+                Panel.SetZIndex(element, zIndex++);
+            }
+
+
+
+            List<Product> filteredProducts = _productDal.GetByCategory(5);
+
+            ScrollViewer scrollViewer = FilteredByCategoriesMethod(filteredProducts);
+
+            grdMain.Children.Add(scrollViewer);
+        }
+
+        private void MeatPoultry_Click(object sender, RoutedEventArgs e)
+        {
+            grdMain.Children.Clear();
+
+            List<UIElement> elementsToKeep = ElementsToKeep();
+
+            var zIndex = 1;
+            foreach (var element in elementsToKeep)
+            {
+                grdMain.Children.Add(element);
+
+                Panel.SetZIndex(element, zIndex++);
+            }
+
+
+
+            List<Product> filteredProducts = _productDal.GetByCategory(6);
+
+            ScrollViewer scrollViewer = FilteredByCategoriesMethod(filteredProducts);
+
+            grdMain.Children.Add(scrollViewer);
+        }
+
+
+        private void Producee_Click(object sender, RoutedEventArgs e)
+        {
+            grdMain.Children.Clear();
+
+            List<UIElement> elementsToKeep = ElementsToKeep();
+
+            var zIndex = 1;
+            foreach (var element in elementsToKeep)
+            {
+                grdMain.Children.Add(element);
+
+                Panel.SetZIndex(element, zIndex++);
+            }
+
+
+
+            List<Product> filteredProducts = _productDal.GetByCategory(7);
+
+            ScrollViewer scrollViewer = FilteredByCategoriesMethod(filteredProducts);
+
+            grdMain.Children.Add(scrollViewer);
+        }
+
+        private void Seafood_Click(object sender, RoutedEventArgs e)
+        {
+            grdMain.Children.Clear();
+
+            List<UIElement> elementsToKeep = ElementsToKeep();
+
+            var zIndex = 1;
+            foreach (var element in elementsToKeep)
+            {
+                grdMain.Children.Add(element);
+
+                Panel.SetZIndex(element, zIndex++);
+            }
+
+
+
+            List<Product> filteredProducts = _productDal.GetByCategory(8);
+
+            ScrollViewer scrollViewer = FilteredByCategoriesMethod(filteredProducts);
+
+            grdMain.Children.Add(scrollViewer);
+        }
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+        public void CategoriesMenu()
+        {
+            List<Category> categories = _productDal.GetCategories();
+
+            List<string> imagePaths = new List<string>()
+            {
+
+                "/ETRadeWPFAppDemo;component/Assets/Baverage.png",
+                "/ETRadeWPFAppDemo;component/Assets/Condiment.png",
+                "/ETRadeWPFAppDemo;component/Assets/Confections.png",
+                "/ETRadeWPFAppDemo;component/Assets/dairyProducts.png",
+                "/ETRadeWPFAppDemo;component/Assets/GrainsCereals.png",
+                "/ETRadeWPFAppDemo;component/Assets/MeatPoultry.png",
+                "/ETRadeWPFAppDemo;component/Assets/Producee.png",
+                "/ETRadeWPFAppDemo;component/Assets/Seafood.png"
+            };
+
+            List<string> buttonsName = new List<string>()
+            {
+                "Baverage",
+                "Condiment",
+                "Confections",
+                "dairyProducts",
+                "GrainsCereals",
+                "MeatPoultry",
+                "Producee",
+                "Seafood"
+            };
+                
+
+            int row = 0;
+            int col = 0;
+            int roww = 0; // for image count
+            Grid grdCategories = new Grid()
+            {
+                Width = Double.NaN, // = Auto
+                Height = Double.NaN,
+                Background = new SolidColorBrush(Colors.Red)
+            };
+
+            ScrollViewer scrollViewer = new ScrollViewer()
+            {
+                //Height = 400,
+                Margin = new Thickness(20, 80, 0, 0)
+            };
+
+            scrollViewer.Content = grdCategories;
+
+            grdMain.Children.Add(scrollViewer);
+
+
+            Border bigBorder = new Border()
+            {
+                MinHeight = 350
+            };
+
+            StackPanel stackPanel = new StackPanel();
+
+            foreach (Category category in categories)
+            {
+                string imagePath = imagePaths[roww * 1 + col];
+
+                string buttonName = buttonsName[roww * 1 + col];
+                
+                roww++;
+
+                Uri imageUri = new Uri(imagePath, UriKind.RelativeOrAbsolute);
+
+                BitmapImage bitmapImage = new BitmapImage(imageUri);
+
+                Image imageControl = new Image();
+
+                imageControl.Source = bitmapImage;
+                
+                Border border = new Border()
+                {
+                    Width = 600,
+                    Height = 200,
+                    Margin = new Thickness(0 + col * 0, 20 + row * 30, 0, 0),
+                    CornerRadius = new CornerRadius(20),
+                    Background = new SolidColorBrush(Colors.White)
+                };
+
+                Button button = new Button()
+                {
+                    Width = 580,
+                    Height = 180,
+                    BorderThickness = new Thickness(0),
+                    Background = new SolidColorBrush(Colors.White)
+                };
+                button.Content = imageControl;
+
+                //---------------------------------------------
+
+                if (buttonName == "Baverage")
+                {
+                    button.Click += Baverage_Click;
+                }
+
+                if (buttonName == "Condiment")
+                {
+                    button.Click += Condiment_Click;
+                }
+
+                if (buttonName == "Confections")
+                {
+                    button.Click += Confections_Click;
+                }
+
+                if (buttonName == "dairyProducts")
+                {
+                    button.Click += dairyProducts_Click;
+                }
+
+                if (buttonName == "GrainsCereals")
+                {
+                    button.Click += GrainsCereals_Click;
+                }
+
+                if (buttonName == "MeatPoultry")
+                {
+                    button.Click += MeatPoultry_Click;
+                }
+
+                if (buttonName == "Producee")
+                {
+                    button.Click += Producee_Click;
+                }
+
+                if (buttonName == "Seafood")
+                {
+                    button.Click += Seafood_Click;
+                }
+
+                //----------------------------------------------
+
+                border.Child = button;
+
+                stackPanel.Children.Add(border);
+
+                col++;
+                if (col >= 1)
+                {
+                    col = 0;
+                    Margin = new Thickness(20);
+                    //row++;
+                }
+            }
+            bigBorder.Child = stackPanel;
+            grdCategories.Children.Add(bigBorder);
+        }
 
 
 
@@ -87,13 +476,35 @@ namespace ETRadeWPFAppDemo
 
         private void btnBaverages_Click(object sender, RoutedEventArgs e)
         {
-            brdrCategories.Visibility = Visibility.Collapsed;
+            //brdrCategories.Visibility = Visibility.Collapsed;
 
-            List<Product> filteredProducts = _productDal.GetBaveragesCategory(1);
+            //grdMain.Children.Clear();
 
+            //List<UIElement> elementsToKeep = ElementsToKeep();
+
+            //var zIndex = 1;
+            //foreach (var element in elementsToKeep)
+            //{
+            //    grdMain.Children.Add(element);
+
+            //    Panel.SetZIndex(element, zIndex++);
+            //}
+
+
+
+            //List<Product> filteredProducts = _productDal.GetByCategory(1);
+
+            //ScrollViewer scrollViewer = FilteredByCategoriesMethod(filteredProducts);
+
+            //grdMain.Children.Add(scrollViewer);
+        }
+
+        //---------------------------------------------------------------------------------------
+        private static ScrollViewer FilteredByCategoriesMethod(List<Product> filteredProducts)
+        {
             Grid grdCategory = new Grid()
             {
-                
+
                 Margin = new Thickness(40, 100, 0, 40),
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center
@@ -102,8 +513,8 @@ namespace ETRadeWPFAppDemo
 
             ScrollViewer scrollViewer = new ScrollViewer()
             {
-                Width = 700,
-                Height = 400,
+                Width = Double.NaN, // = Auto
+                Height = Double.NaN,
                 VerticalScrollBarVisibility = ScrollBarVisibility.Auto
             };
             scrollViewer.Content = grdCategory;
@@ -168,9 +579,86 @@ namespace ETRadeWPFAppDemo
                     row++;
                 }
             }
+            
+            return scrollViewer;
+
+
+            // if you will use this method don't forget to add this method's end "grdMain.Children.Add(scrollViewer)" 
+        }
+        //---------------------------------------------------------------------------------------
+
+        private void btnCondiments_Click(object sender, RoutedEventArgs e)
+        {
+            //brdrCategories.Visibility = Visibility.Collapsed;
+
+            grdMain.Children.Clear();
+
+            List<UIElement> elementsToKeep = ElementsToKeep();
+
+            var zIndex = 1;
+            foreach (var element in elementsToKeep)
+            {
+                grdMain.Children.Add(element);
+
+                Panel.SetZIndex(element, zIndex++);
+            }
+
+            List<Product> filteredProducts = _productDal.GetByCategory(2);
+
+            ScrollViewer scrollViewer = FilteredByCategoriesMethod(filteredProducts);
+
+            grdMain.Children.Add(scrollViewer);
+
+
+
+        }
+
+        private void btnConfections_Click(object sender, RoutedEventArgs e)
+        {
+            //brdrCategories.Visibility = Visibility.Collapsed;
+
+            grdMain.Children.Clear();
+
+            List<UIElement> elementsToKeep = ElementsToKeep();
+
+            var zIndex = 1;
+            foreach (var element in elementsToKeep)
+            {
+                grdMain.Children.Add(element);
+
+                Panel.SetZIndex(element, zIndex++);
+            }
+
+            List<Product> filteredProducts = _productDal.GetByCategory(3);
+
+            ScrollViewer scrollViewer = FilteredByCategoriesMethod(filteredProducts);
 
             grdMain.Children.Add(scrollViewer);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

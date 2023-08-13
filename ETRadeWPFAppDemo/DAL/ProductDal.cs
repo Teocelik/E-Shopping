@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace ETRadeWPFAppDemo.DAL
 {
@@ -19,7 +21,7 @@ namespace ETRadeWPFAppDemo.DAL
             }
         }
 
-        public List<Product> GetBaveragesCategory(int categoryId)
+        public List<Product> GetByCategory(int categoryId)
         {
             using (NorthwindContext context = new NorthwindContext())
             {
@@ -28,7 +30,14 @@ namespace ETRadeWPFAppDemo.DAL
         }
 
 
+        public List<Category> GetCategories()
+        {
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                return context.Categories.ToList();
 
+            }
+        }
 
 
 
