@@ -11,8 +11,8 @@
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
-                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="200"/>
             </DoubleAnimationUsingKeyFrames>
 
         </Storyboard>
@@ -63,7 +63,7 @@
             </TextBlock>
         </Grid>
 
-        <Grid x:Name="dgwListByName" Width="395" Height="80" Margin="5,0,0,330" Background="White" Visibility="Collapsed" Panel.ZIndex="1">
+        <Grid x:Name="dgwListByName" HorizontalAlignment="Center" VerticalAlignment="Top" Width="395" Height="80" Margin="5,67,0,0" Background="White" Visibility="Collapsed" Panel.ZIndex="1">
             <Grid.Resources>
                 <DataTemplate x:Key="ProductTemplate">
                     <TextBlock Text="{Binding ProductName}"/>
@@ -75,7 +75,7 @@
 
         </Grid>
        
-        <!-- Border of categories -->
+        
         
 
 
@@ -177,6 +177,15 @@
             </StackPanel>
 
         </Grid>
+
+
+        
+        
+        
+        
+        
+        
+        
 
     </Grid>
 </Window>

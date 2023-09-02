@@ -148,6 +148,198 @@
   <ItemGroup>
     <Resource Include="Assets\Seafood.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Ikurajpeg.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\RödKaviar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\EscargotsDeBourgogne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Jack%27sNewEnglandClamChowder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\BostonCrabMeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\gravadLax.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\InlagdSill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Kombu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\LonglifeTofu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\DriedApples.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\RössleSauerkraut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Tofu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\OrcanicDriedPears.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Mutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ThüringerRostbratwurst.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\PerthPasties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Tourtiere.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\PateChinois.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\knackebröd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Tunnbröd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\SingaporeanHokkienFriedMee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\GrocchiDiNonna.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\RavioliAngelo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\WimmersGute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\quesoCabrales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\QuesoManchegoLaPastora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\gorgonzolaTelino.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\MascarponeFabiola.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Geitost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\camembertPierrot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Gudbrandsdalsost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Flotemysost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\mozzarellaDiGiovanni.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\pavlova.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\choclateBiscuits.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\marmalade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\scones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\NougatCreme.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\gummibears.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\schoggiSchokolade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\chocolate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\valkoinenSuklaa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\tarteAuSucre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\scottishLongbreads.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\aniseedSyrup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\cajunSeasoning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\gumboMix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\boysenberry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\northwoodsCranberrySauce.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\sirop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\pepper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Okra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\grüne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\chai.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\chang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\guarana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\sasquatchAle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\steeleyeStout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Blaye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\chartreuseVerte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ipohCoffee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\outbackLager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\klosterbier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\lakkalikööri.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
