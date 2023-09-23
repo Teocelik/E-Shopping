@@ -1,5 +1,6 @@
 ﻿using ETRadeWPFAppDemo.DAL;
 using ETRadeWPFAppDemo.Entities;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -94,8 +95,6 @@ namespace ETRadeWPFAppDemo
 
         //------------------------------------------------------------------
 
-
-
         private void Baverage_Click(object sender, RoutedEventArgs e)
         {
             grdMain.Children.Clear();
@@ -110,6 +109,7 @@ namespace ETRadeWPFAppDemo
                 Panel.SetZIndex(element, zIndex++);
             }
 
+            
 
 
             List<Product> filteredProducts = _productDal.GetByCategory(1);
@@ -140,7 +140,7 @@ namespace ETRadeWPFAppDemo
                 "/ETRadeWPFAppDemo;component/Assets/Blaye.png",
                 "/ETRadeWPFAppDemo;component/Assets/chartreuseVerte.png",
                 "/ETRadeWPFAppDemo;component/Assets/ipohCoffee.png",
-                "/ETRadeWPFAppDemo;component/Assets/Seafood.png",
+                "/ETRadeWPFAppDemo;component/Assets/.png",
                 "/ETRadeWPFAppDemo;component/Assets/outbackLager.png",
                 "/ETRadeWPFAppDemo;component/Assets/klosterbier.png",
                 "/ETRadeWPFAppDemo;component/Assets/lakkalikööri.png"
@@ -187,8 +187,11 @@ namespace ETRadeWPFAppDemo
                     Width = 280,
                     Height = 230,
                     BorderThickness = new Thickness(0),
-                    Background = new SolidColorBrush(Colors.White)
+                    Background = new SolidColorBrush(Colors.White),
+                    Tag = product
                 };
+
+                button.Click += ProductDetails_Click;
 
                 string buttonName = buttonsName[row * 2 + col];
 
@@ -204,8 +207,6 @@ namespace ETRadeWPFAppDemo
                 {
                     Width = 280,
                     Height = 140,
-                    //VerticalAlignment = VerticalAlignment.Top,
-                    //HorizontalAlignment = HorizontalAlignment.Center,
                     Margin = new Thickness(0, 0, 0, 0)
                 };
 
@@ -214,12 +215,7 @@ namespace ETRadeWPFAppDemo
 
                 //----------------------------------------
                 border.Child = button;
-                //**************
-                //if (buttonName == "MeatPoultryBtn1")
-                //{
-                //    button.Click += MeatPoultryBtn1_Click;   // coming soon
-                //};
-                //**************
+                
                 StackPanel stackPanel = new StackPanel()
                 {
                     VerticalAlignment = VerticalAlignment.Center,
@@ -248,6 +244,8 @@ namespace ETRadeWPFAppDemo
                     Background = Brushes.White
                 };
 
+                
+
 
 
                 stackPanel.Children.Add(textBlockProductName);
@@ -258,6 +256,7 @@ namespace ETRadeWPFAppDemo
                 button.Content = stackPanel;
 
                 grdCategory.Children.Add(border);
+                
 
                 col++;
                 if (col >= 2) // İki ürün yan yana olduğunda, bir sonraki satıra geçmek için
@@ -363,8 +362,11 @@ namespace ETRadeWPFAppDemo
                     Width = 280,
                     Height = 230,
                     BorderThickness = new Thickness(0),
-                    Background = new SolidColorBrush(Colors.White)
+                    Background = new SolidColorBrush(Colors.White),
+                    Tag = product
                 };
+
+                button.Click += ProductDetails_Click;
 
                 string buttonName = buttonsName[row * 2 + col];
 
@@ -380,8 +382,6 @@ namespace ETRadeWPFAppDemo
                 {
                     Width = 280,
                     Height = 140,
-                    //VerticalAlignment = VerticalAlignment.Top,
-                    //HorizontalAlignment = HorizontalAlignment.Center,
                     Margin = new Thickness(0, 0, 0, 0)
                 };
 
@@ -390,12 +390,7 @@ namespace ETRadeWPFAppDemo
 
                 //----------------------------------------
                 border.Child = button;
-                //**************
-                //if (buttonName == "MeatPoultryBtn1")
-                //{
-                //    button.Click += MeatPoultryBtn1_Click;   // coming soon
-                //};
-                //**************
+                
                 StackPanel stackPanel = new StackPanel()
                 {
                     VerticalAlignment = VerticalAlignment.Center,
@@ -541,8 +536,11 @@ namespace ETRadeWPFAppDemo
                     Width = 280,
                     Height = 230,
                     BorderThickness = new Thickness(0),
-                    Background = new SolidColorBrush(Colors.White)
+                    Background = new SolidColorBrush(Colors.White),
+                    Tag = product
                 };
+
+                button.Click += ProductDetails_Click;
 
                 string buttonName = buttonsName[row * 2 + col];
 
@@ -558,8 +556,6 @@ namespace ETRadeWPFAppDemo
                 {
                     Width = 280,
                     Height = 140,
-                    //VerticalAlignment = VerticalAlignment.Top,
-                    //HorizontalAlignment = HorizontalAlignment.Center,
                     Margin = new Thickness(0, 0, 0, 0)
                 };
 
@@ -568,12 +564,7 @@ namespace ETRadeWPFAppDemo
 
                 //----------------------------------------
                 border.Child = button;
-                //**************
-                //if (buttonName == "MeatPoultryBtn1")
-                //{
-                //    button.Click += MeatPoultryBtn1_Click;   // coming soon
-                //};
-                //**************
+           
                 StackPanel stackPanel = new StackPanel()
                 {
                     VerticalAlignment = VerticalAlignment.Center,
@@ -713,8 +704,11 @@ namespace ETRadeWPFAppDemo
                     Width = 280,
                     Height = 230,
                     BorderThickness = new Thickness(0),
-                    Background = new SolidColorBrush(Colors.White)
+                    Background = new SolidColorBrush(Colors.White),
+                    Tag = product
                 };
+
+                button.Click += ProductDetails_Click;
 
                 string buttonName = buttonsName[row * 2 + col];
 
@@ -730,8 +724,6 @@ namespace ETRadeWPFAppDemo
                 {
                     Width = 280,
                     Height = 140,
-                    //VerticalAlignment = VerticalAlignment.Top,
-                    //HorizontalAlignment = HorizontalAlignment.Center,
                     Margin = new Thickness(0, 0, 0, 0)
                 };
 
@@ -740,12 +732,7 @@ namespace ETRadeWPFAppDemo
 
                 //----------------------------------------
                 border.Child = button;
-                //**************
-                //if (buttonName == "MeatPoultryBtn1")
-                //{
-                //    button.Click += MeatPoultryBtn1_Click;   // coming soon
-                //};
-                //**************
+                
                 StackPanel stackPanel = new StackPanel()
                 {
                     VerticalAlignment = VerticalAlignment.Center,
@@ -879,8 +866,11 @@ namespace ETRadeWPFAppDemo
                     Width = 280,
                     Height = 230,
                     BorderThickness = new Thickness(0),
-                    Background = new SolidColorBrush(Colors.White)
+                    Background = new SolidColorBrush(Colors.White),
+                    Tag = product
                 };
+
+                button.Click += ProductDetails_Click;
 
                 string buttonName = buttonsName[row * 2 + col];
 
@@ -896,8 +886,6 @@ namespace ETRadeWPFAppDemo
                 {
                     Width = 280,
                     Height = 140,
-                    //VerticalAlignment = VerticalAlignment.Top,
-                    //HorizontalAlignment = HorizontalAlignment.Center,
                     Margin = new Thickness(0, 0, 0, 0)
                 };
 
@@ -906,12 +894,7 @@ namespace ETRadeWPFAppDemo
 
                 //----------------------------------------
                 border.Child = button;
-                //**************
-                //if (buttonName == "MeatPoultryBtn1")
-                //{
-                //    button.Click += MeatPoultryBtn1_Click;   // coming soon
-                //};
-                //**************
+                
                 StackPanel stackPanel = new StackPanel()
                 {
                     VerticalAlignment = VerticalAlignment.Center,
@@ -1043,8 +1026,11 @@ namespace ETRadeWPFAppDemo
                     Width = 280,
                     Height = 230,
                     BorderThickness = new Thickness(0),
-                    Background = new SolidColorBrush(Colors.White)
+                    Background = new SolidColorBrush(Colors.White),
+                    Tag = product
                 };
+
+                button.Click += ProductDetails_Click;
 
                 string buttonName = buttonsName[row * 2 + col];
 
@@ -1211,8 +1197,13 @@ namespace ETRadeWPFAppDemo
                     Width = 280,
                     Height = 230,
                     BorderThickness = new Thickness(0),
-                    Background = new SolidColorBrush(Colors.White)
+                    Background = new SolidColorBrush(Colors.White),
+                    Tag = product
                 };
+
+                //bir buton ProductDetails'e bağlanacak bir tanesi de BasketButonuna
+
+                button.Click += ProductDetails_Click;
 
                 string buttonName = buttonsName[row * 2 + col];
 
@@ -1238,12 +1229,7 @@ namespace ETRadeWPFAppDemo
 
                 //----------------------------------------
                 border.Child = button;
-                //**************
-                //if (buttonName == "MeatPoultryBtn1")
-                //{
-                //    button.Click += MeatPoultryBtn1_Click;   // coming soon
-                //};
-                //**************
+                
                 StackPanel stackPanel = new StackPanel()
                 {
                     VerticalAlignment = VerticalAlignment.Center,
@@ -1296,11 +1282,90 @@ namespace ETRadeWPFAppDemo
         }
 
 
+        private void ProductDetails_Click(object sender, RoutedEventArgs e)
+        {
+            grdMain.Children.Clear();
 
+            List<UIElement> elementsToKeep = ElementsToKeep();
 
+            var zIndex = 1;
+            foreach (var element in elementsToKeep)
+            {
+                grdMain.Children.Add(element);
+
+                Panel.SetZIndex(element, zIndex++);
+            }
+
+            Button button = (Button)sender;
+            Product product = (Product)button.Tag;
+
+            Grid grdProducts = ProductsDetailsGrid();
+
+            Border border = new Border()
+            {
+                Width = 300,
+                Height = 400,
+                Background = Brushes.White,
+                Margin = new Thickness(0, 0, 650, 0),
+                CornerRadius = new CornerRadius(20),
+                //Child = iimage
+            };
+
+            Line line = new Line()
+            {
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Margin = new Thickness(170, 0, 0, 100),
+                X1 = 100,
+                Y1 = 0,
+                X2 = 600,
+                Y2 = 0,
+                Stroke = Brushes.Black,
+                StrokeThickness = 1
+            };
+
+            TextBox text = new TextBox()
+            {
+                Text = product.ProductName,
+                FontFamily = new FontFamily("Franklin Gothic Medium"),
+                FontSize = 24,
+                Width = 400,
+                Height = 90,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(100, 40, 0, 350),
+                IsReadOnly = true,
+                TextWrapping = TextWrapping.Wrap,
+                BorderThickness = new Thickness(0)
+            };
+
+            TextBox price = new TextBox()
+            {
+                Text = $"${product.UnitPrice:F2}",
+                FontSize = 24,
+                FontFamily = new FontFamily("Arial"),
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Width = 90,
+                Height = 40,
+                IsReadOnly = true,
+                Margin = new Thickness(0, 0, 150, 0)
+            };
+
+            ProductsCounter productsCounter = new ProductsCounter(grdProducts);
+
+            grdProducts.Children.Add(price);
+
+            grdProducts.Children.Add(text);
+
+            grdProducts.Children.Add(line);
+
+            grdProducts.Children.Add(border);
+
+        }
 
         //----------------------------------------------------
-        public Grid ProductsDetailsBorder()
+        public Grid ProductsDetailsGrid()
         {
             StackPanel stackPanel = new StackPanel();
 
@@ -1325,7 +1390,6 @@ namespace ETRadeWPFAppDemo
         }
         //----------------------------------------------------
 
-
         //************SeaFoodsButtons****************
 
         private void seaFoodBtn1_Click(object sender, RoutedEventArgs e)
@@ -1342,76 +1406,172 @@ namespace ETRadeWPFAppDemo
                 Panel.SetZIndex(element, zIndex++);
             }
 
-            Grid grdProducts = ProductsDetailsBorder();
+            Grid grdProducts = ProductsDetailsGrid();
 
+            //--------------------------
 
-
-
-            string image = "/ETRadeWPFAppDemo;component/Assets/Seafood.png";
-
-
-            Image iimage = new Image()
+            List<string> buttonsName = new List<string>()
             {
-                Source = new BitmapImage(new Uri(image, UriKind.RelativeOrAbsolute)),
-                Width = 380,
-                Height = 880,
-                Stretch = Stretch.Uniform,
-                HorizontalAlignment = HorizontalAlignment.Left,
-                VerticalAlignment = VerticalAlignment.Center,
-
+                "seaFoodBtn1",
+                "seaFoodBtn2",
+                "seaFoodBtn3",
+                "seaFoodBtn4",
+                "seaFoodBtn5",
+                "seaFoodBtn6",
+                "seaFoodBtn7",
+                "seaFoodBtn8",
+                "seaFoodBtn9",
+                "seaFoodBtn10",
+                "seaFoodBtn11",
+                "seaFoodBtn12"
             };
 
-            Border border = new Border()
-            {
-                Width = 300,
-                Height = 400,
-                Background = Brushes.White,
-                Margin = new Thickness(0, 0, 650, 0),
-                CornerRadius = new CornerRadius(20)
-            };
+            List<Product> filteredProducts = _productDal.GetByCategory(8);
 
-            border.Child = iimage;
-
-            Line line = new Line()
+            foreach (var product in filteredProducts)
             {
-                VerticalAlignment = VerticalAlignment.Center,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                Margin = new Thickness(170, 0, 0, 100),
-                X1 = 100,
-                Y1 = 0,
-                X2 = 600,
-                Y2 = 0,
-                Stroke = Brushes.Black,
-                StrokeThickness = 1
-            };
+                if (product.ProductName == "Ikura")
+                {
+                    string image = "/ETRadeWPFAppDemo;component/Assets/Ikurajpeg.PNG";
 
-            TextBox text = new TextBox()
-            {
-                Text = "deneme text'i \r\n alt satıra geçildi.",
-                FontFamily = new FontFamily("Franklin Gothic Medium"),
-                FontSize = 24,
-                Width = 400,
-                Height = 90,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
-                Margin = new Thickness(100, 40, 0, 350),
-                IsReadOnly = true,
-                TextWrapping = TextWrapping.Wrap,
-                BorderThickness = new Thickness(0)
-            };
+                    Image iimage = new Image()
+                    {
+                        Source = new BitmapImage(new Uri(image, UriKind.RelativeOrAbsolute)),
+                        Width = 380,
+                        Height = 880,
+                        Stretch = Stretch.Uniform,
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        VerticalAlignment = VerticalAlignment.Center,
+                    };
 
-            TextBox price = new TextBox()
-            {
-                Text = "$31.00",
-                FontSize = 24,
-                FontFamily = new FontFamily("Arial"),
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
-                Width = 90,
-                Height = 40,
-                IsReadOnly = true,
-                Margin = new Thickness(0, 0, 150, 0)
-            };
+                    Border border = new Border()
+                    {
+                        Width = 300,
+                        Height = 400,
+                        Background = Brushes.White,
+                        Margin = new Thickness(0, 0, 650, 0),
+                        CornerRadius = new CornerRadius(20),
+                        Child = iimage
+                    };
+
+                    Line line = new Line()
+                    {
+                        VerticalAlignment = VerticalAlignment.Center,
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        Margin = new Thickness(170, 0, 0, 100),
+                        X1 = 100,
+                        Y1 = 0,
+                        X2 = 600,
+                        Y2 = 0,
+                        Stroke = Brushes.Black,
+                        StrokeThickness = 1
+                    };
+
+                    TextBox text = new TextBox()
+                    {
+                        Text = product.ProductName,
+                        FontFamily = new FontFamily("Franklin Gothic Medium"),
+                        FontSize = 24,
+                        Width = 400,
+                        Height = 90,
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Center,
+                        Margin = new Thickness(100, 40, 0, 350),
+                        IsReadOnly = true,
+                        TextWrapping = TextWrapping.Wrap,
+                        BorderThickness = new Thickness(0)
+                    };
+
+                    TextBox price = new TextBox()
+                    {
+                        Text = $"${product.UnitPrice:F2}",
+                        FontSize = 24,
+                        FontFamily = new FontFamily("Arial"),
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Center,
+                        Width = 90,
+                        Height = 40,
+                        IsReadOnly = true,
+                        Margin = new Thickness(0, 0, 150, 0)
+                    };
+
+                    grdProducts.Children.Add(price);
+
+                    grdProducts.Children.Add(text);
+
+                    grdProducts.Children.Add(line);
+
+                    grdProducts.Children.Add(border);
+                }
+            }
+
+            //--------------------------
+
+            //string image = "/ETRadeWPFAppDemo;component/Assets/Seafood.png";
+
+
+            //Image iimage = new Image()
+            //{
+            //    Source = new BitmapImage(new Uri(image, UriKind.RelativeOrAbsolute)),
+            //    Width = 380,
+            //    Height = 880,
+            //    Stretch = Stretch.Uniform,
+            //    HorizontalAlignment = HorizontalAlignment.Left,
+            //    VerticalAlignment = VerticalAlignment.Center,
+
+            //};
+
+            //Border border = new Border()
+            //{
+            //    Width = 300,
+            //    Height = 400,
+            //    Background = Brushes.White,
+            //    Margin = new Thickness(0, 0, 650, 0),
+            //    CornerRadius = new CornerRadius(20)
+            //};
+
+            //border.Child = iimage;
+
+            //Line line = new Line()
+            //{
+            //    VerticalAlignment = VerticalAlignment.Center,
+            //    HorizontalAlignment = HorizontalAlignment.Center,
+            //    Margin = new Thickness(170, 0, 0, 100),
+            //    X1 = 100,
+            //    Y1 = 0,
+            //    X2 = 600,
+            //    Y2 = 0,
+            //    Stroke = Brushes.Black,
+            //    StrokeThickness = 1
+            //};
+
+            //TextBox text = new TextBox()
+            //{
+            //    Text = "deneme text'i \r\n alt satıra geçildi.",
+            //    FontFamily = new FontFamily("Franklin Gothic Medium"),
+            //    FontSize = 24,
+            //    Width = 400,
+            //    Height = 90,
+            //    HorizontalAlignment = HorizontalAlignment.Center,
+            //    VerticalAlignment = VerticalAlignment.Center,
+            //    Margin = new Thickness(100, 40, 0, 350),
+            //    IsReadOnly = true,
+            //    TextWrapping = TextWrapping.Wrap,
+            //    BorderThickness = new Thickness(0)
+            //};
+
+            //TextBox price = new TextBox()
+            //{
+            //    Text = $"{product.QuantityPerUnit}                          {product.UnitPrice:F2}$ ",
+            //    FontSize = 24,
+            //    FontFamily = new FontFamily("Arial"),
+            //    HorizontalAlignment = HorizontalAlignment.Center,
+            //    VerticalAlignment = VerticalAlignment.Center,
+            //    Width = 90,
+            //    Height = 40,
+            //    IsReadOnly = true,
+            //    Margin = new Thickness(0, 0, 150, 0)
+            //};
 
 
 
@@ -1431,7 +1591,11 @@ namespace ETRadeWPFAppDemo
                 Child = buyButton
             };
 
-             
+            //------ (+ , - ) kod bloğu------
+
+        ProductsCounter productsCounter = new ProductsCounter(grdProducts);
+
+            //-------------------------------
 
 
             Border basketBorder = GetBasketBorder();
@@ -1441,17 +1605,18 @@ namespace ETRadeWPFAppDemo
             //--------------------------------
 
 
-            grdProducts.Children.Add(price);
+            //grdProducts.Children.Add(price);
 
-            grdProducts.Children.Add(text);
+            //grdProducts.Children.Add(text);
 
-            grdProducts.Children.Add(line);
+            //grdProducts.Children.Add(line);
 
-            grdProducts.Children.Add(border);
+            //grdProducts.Children.Add(border);
 
         }
 
         //**********************
+
         private static Button GetBuyButton()
         {
             Button buyButton = new Button()
@@ -1472,7 +1637,7 @@ namespace ETRadeWPFAppDemo
         }
 
 
-        private static Border GetBasketBorder()
+        private Border GetBasketBorder()
         {
             Button basketButton = new Button()
             {
@@ -1485,6 +1650,8 @@ namespace ETRadeWPFAppDemo
                 BorderThickness = new Thickness(0),
                 Content = "Add to card"
             };
+
+            basketButton.Click += BasketButton_Click;
 
             Border basketBorder = new Border()
             {
@@ -1500,6 +1667,29 @@ namespace ETRadeWPFAppDemo
             };
             return basketBorder;
         }
+
+        private void BasketButton_Click(object sender, RoutedEventArgs e)
+        {
+            grdMain.Children.Clear();
+
+            List<UIElement> elementsToKeep = ElementsToKeep();
+
+            var zIndex = 1;
+            foreach (var element in elementsToKeep)
+            {
+                grdMain.Children.Add(element);
+
+                Panel.SetZIndex(element, zIndex++);
+            }
+
+            Grid grdProducts = ProductsDetailsGrid();
+
+
+            
+        }
+
+
+
         //**************************
 
         //*******************************************
@@ -1597,7 +1787,9 @@ namespace ETRadeWPFAppDemo
                     BorderThickness = new Thickness(0),
                     Background = new SolidColorBrush(Colors.White)
                 };
-                
+
+                button.Click += ProductDetails_Click;
+
                 string buttonName = buttonsName[row * 2 + col];
 
                 //----------------------------------------
@@ -1612,21 +1804,15 @@ namespace ETRadeWPFAppDemo
                 {
                     Width = 280,
                     Height = 140,
-                    //VerticalAlignment = VerticalAlignment.Top,
-                    //HorizontalAlignment = HorizontalAlignment.Center,
                     Margin = new Thickness(0,0,0,0)
                 };
                 
                 seaFoodImageControl.Source = bitmapImage;
-                //button.Content = seaFoodImageControl;
 
                 //----------------------------------------
                 border.Child = button;
-                //**************
-                if (buttonName == "seaFoodBtn1")
-                {
-                    button.Click += seaFoodBtn1_Click;
-                };
+                
+                
                 //**************
                 StackPanel stackPanel = new StackPanel()
                 {
@@ -1690,7 +1876,6 @@ namespace ETRadeWPFAppDemo
 
             List<string> imagePaths = new List<string>()
             {
-
                 "/ETRadeWPFAppDemo;component/Assets/Baverage.png",
                 "/ETRadeWPFAppDemo;component/Assets/Condiment.png",
                 "/ETRadeWPFAppDemo;component/Assets/Confections.png",
@@ -1862,30 +2047,123 @@ namespace ETRadeWPFAppDemo
             
         }
 
-        //private void btnBaverages_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //brdrCategories.Visibility = Visibility.Collapsed;
+        //******* ürün miktarını arttırıp azaltan kod bloğu****************
 
-        //    //grdMain.Children.Clear();
+        public class ProductsCounter
+        {
+            private int labelContent = 1;
+            private Label label;
 
-        //    //List<UIElement> elementsToKeep = ElementsToKeep();
+            public ProductsCounter(Grid grid)
+            {
+                label = new Label()
+                {
 
-        //    //var zIndex = 1;
-        //    //foreach (var element in elementsToKeep)
-        //    //{
-        //    //    grdMain.Children.Add(element);
+                    Content = labelContent.ToString(),
+                    VerticalAlignment = VerticalAlignment.Center,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    Margin = new Thickness(825, 200, 0, 0),
+                    Background = Brushes.Red,
+                    Foreground = Brushes.Black,
+                    Padding = new Thickness(5)
+                };
 
-        //    //    Panel.SetZIndex(element, zIndex++);
-        //    //}
+
+                Button plusButton = new Button()
+                {
+                    Name = "tryButton",
+                    Width = 25,
+                    Height = 25,
+                    //Background = Brushes.Red,
+                    Margin = new Thickness(900, 200, 0, 0),
+                    BorderThickness = new Thickness(0),
+                    BorderBrush = Brushes.Transparent,
+                    Background = Brushes.Transparent,
+
+                    Content = new Border()
+                    {
+                        Width = 20,
+                        Height = 20,
+
+                        Background = Brushes.LightGray,
+                        CornerRadius = new CornerRadius(10),
+
+                        Child = new System.Windows.Shapes.Path()
+                        {
+                            Data = Geometry.Parse("M 5,10 L 15,10 M 10,5 L 10,15"),
+
+                            Stroke = Brushes.Black,
+                            StrokeThickness = 1
+                        }
+                    }
+                };
+
+
+                Button negativeButton = new Button()
+                {
+                    Name = "tryButtonn",
+                    Width = 25,
+                    Height = 25,
+                    BorderThickness = new Thickness(0),
+                    BorderBrush = Brushes.Transparent,
+                    Background = Brushes.Transparent,
+                    Margin = new Thickness(750, 200, 0, 0),
+
+                    Content = new Border()
+                    {
+                        Width = 20,
+                        Height = 20,
+
+                        Background = Brushes.LightGray,
+                        CornerRadius = new CornerRadius(10),
+
+                        Child = new System.Windows.Shapes.Path()
+                        {
+                            Data = Geometry.Parse("M 5,10 L 15,10"),
+                            Stroke = Brushes.Black,
+                            StrokeThickness = 1
+                        }
+                    }
+                };
+
+
+                if (plusButton.Name == "tryButton")
+                {
+                    plusButton.Click += PlusButton_Click;
+                }
+
+                if (negativeButton.Name == "tryButtonn")
+                {
+                    negativeButton.Click += NegativeButton_Click;
+                }
 
 
 
-        //    //List<Product> filteredProducts = _productDal.GetByCategory(1);
+                grid.Children.Add(label);
+                grid.Children.Add(plusButton);
 
-        //    //ScrollViewer scrollViewer = FilteredByCategoriesMethod(filteredProducts);
+                grid.Children.Add(negativeButton);
+            }
 
-        //    //grdMain.Children.Add(scrollViewer);
-        //}
+            private void NegativeButton_Click(object sender, RoutedEventArgs e)
+            {
+                if (labelContent > 1)
+                {
+                    labelContent--;
+                    label.Content = labelContent.ToString();
+                }
+
+
+            }
+
+            private void PlusButton_Click(object sender, RoutedEventArgs e)
+            {
+                labelContent++;
+                label.Content = labelContent.ToString();
+            }
+        }
+
+        //*****************************************************************
 
         //---------------------------------------------------------------------------------------
         private static ScrollViewer FilteredByCategoriesMethod(List<Product> filteredProducts)
@@ -1989,78 +2267,7 @@ namespace ETRadeWPFAppDemo
         }
         //---------------------------------------------------------------------------------------
 
-        //private void btnCondiments_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //brdrCategories.Visibility = Visibility.Collapsed;
-
-        //    grdMain.Children.Clear();
-
-        //    List<UIElement> elementsToKeep = ElementsToKeep();
-
-        //    var zIndex = 1;
-        //    foreach (var element in elementsToKeep)
-        //    {
-        //        grdMain.Children.Add(element);
-
-        //        Panel.SetZIndex(element, zIndex++);
-        //    }
-
-        //    List<Product> filteredProducts = _productDal.GetByCategory(2);
-
-        //    ScrollViewer scrollViewer = FilteredByCategoriesMethod(filteredProducts);
-
-        //    grdMain.Children.Add(scrollViewer);
-
-
-
-        //}
-
-        //private void btnConfections_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //brdrCategories.Visibility = Visibility.Collapsed;
-
-        //    grdMain.Children.Clear();
-
-        //    List<UIElement> elementsToKeep = ElementsToKeep();
-
-        //    var zIndex = 1;
-        //    foreach (var element in elementsToKeep)
-        //    {
-        //        grdMain.Children.Add(element);
-
-        //        Panel.SetZIndex(element, zIndex++);
-        //    }
-
-        //    List<Product> filteredProducts = _productDal.GetByCategory(3);
-
-        //    ScrollViewer scrollViewer = FilteredByCategoriesMethod(filteredProducts);
-
-        //    grdMain.Children.Add(scrollViewer);
-        //}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      
 
     }
 }
