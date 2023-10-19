@@ -39,6 +39,9 @@ namespace ETRadeWPFAppDemo
         }
 
 
+
+
+
         public List<UIElement> ElementsToKeep()
         {
             List<UIElement> elementsToKeep = new List<UIElement>();
@@ -85,7 +88,7 @@ namespace ETRadeWPFAppDemo
 
         private void ButtonSearch_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void ButtonSingIn_Click(object sender, RoutedEventArgs e)
@@ -1281,8 +1284,9 @@ namespace ETRadeWPFAppDemo
             
         }
 
+        object TagValue; // genel değişken: ürün bilgilerinin tutulduğu değişken
 
-        private void ProductDetails_Click(object sender, RoutedEventArgs e)
+        private void ProductDetails_Click(object sender, RoutedEventArgs e)// For all products
         {
             grdMain.Children.Clear();
 
@@ -1298,8 +1302,20 @@ namespace ETRadeWPFAppDemo
 
             Button button = (Button)sender;
             Product product = (Product)button.Tag;
+            TagValue = button.Tag;
+            ScrollViewer scrollViewer = new ScrollViewer()
+            {
 
-            Grid grdProducts = ProductsDetailsGrid();
+            };
+
+            Grid grdProducts = new Grid()
+            {
+                Width = double.NaN,
+                Height = double.NaN,
+                Background = Brushes.Red
+            };
+
+            
 
             Border border = new Border()
             {
@@ -1352,7 +1368,13 @@ namespace ETRadeWPFAppDemo
                 Margin = new Thickness(0, 0, 150, 0)
             };
 
+            Border buyBorder = GetBuyBorderr();
+            Border basketBorder = GetBasketBorder();
+
             ProductsCounter productsCounter = new ProductsCounter(grdProducts);
+
+
+            grdProducts.Children.Add(scrollViewer);
 
             grdProducts.Children.Add(price);
 
@@ -1362,25 +1384,37 @@ namespace ETRadeWPFAppDemo
 
             grdProducts.Children.Add(border);
 
+            grdProducts.Children.Add(buyBorder);
+
+            grdProducts.Children.Add(basketBorder);
+
+            grdMain.Children.Add(grdProducts);
         }
 
         //----------------------------------------------------
-        public Grid ProductsDetailsGrid()
+        public Grid ProductsDetailsGrid(Product tagValue)
         {
-            StackPanel stackPanel = new StackPanel();
+            List<Product> products = _productDal.GetAllProducts();
+            
+            Button button = new Button()
+            {
+
+            };
+
 
             ScrollViewer scrollViewer = new ScrollViewer()
             {
                
             };
             
-
             Grid grid = new Grid()
             {
                 Width = double.NaN,
                 Height = double.NaN,
                 Background = Brushes.Red
             };
+
+            grid.Tag = tagValue;
 
             grid.Children.Add(scrollViewer);
 
@@ -1392,249 +1426,259 @@ namespace ETRadeWPFAppDemo
 
         //************SeaFoodsButtons****************
 
-        private void seaFoodBtn1_Click(object sender, RoutedEventArgs e)
-        {
-            grdMain.Children.Clear();
+        //private void seaFoodBtn1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    grdMain.Children.Clear();
 
-            List<UIElement> elementsToKeep = ElementsToKeep();
+        //    List<UIElement> elementsToKeep = ElementsToKeep();
 
-            var zIndex = 1;
-            foreach (var element in elementsToKeep)
-            {
-                grdMain.Children.Add(element);
+        //    var zIndex = 1;
+        //    foreach (var element in elementsToKeep)
+        //    {
+        //        grdMain.Children.Add(element);
 
-                Panel.SetZIndex(element, zIndex++);
-            }
+        //        Panel.SetZIndex(element, zIndex++);
+        //    }
 
-            Grid grdProducts = ProductsDetailsGrid();
+        //    Grid grdProducts = ProductsDetailsGrid();
 
-            //--------------------------
+        //    //--------------------------
 
-            List<string> buttonsName = new List<string>()
-            {
-                "seaFoodBtn1",
-                "seaFoodBtn2",
-                "seaFoodBtn3",
-                "seaFoodBtn4",
-                "seaFoodBtn5",
-                "seaFoodBtn6",
-                "seaFoodBtn7",
-                "seaFoodBtn8",
-                "seaFoodBtn9",
-                "seaFoodBtn10",
-                "seaFoodBtn11",
-                "seaFoodBtn12"
-            };
+        //    List<string> buttonsName = new List<string>()
+        //    {
+        //        "seaFoodBtn1",
+        //        "seaFoodBtn2",
+        //        "seaFoodBtn3",
+        //        "seaFoodBtn4",
+        //        "seaFoodBtn5",
+        //        "seaFoodBtn6",
+        //        "seaFoodBtn7",
+        //        "seaFoodBtn8",
+        //        "seaFoodBtn9",
+        //        "seaFoodBtn10",
+        //        "seaFoodBtn11",
+        //        "seaFoodBtn12"
+        //    };
 
-            List<Product> filteredProducts = _productDal.GetByCategory(8);
+        //    List<Product> filteredProducts = _productDal.GetByCategory(8);
 
-            foreach (var product in filteredProducts)
-            {
-                if (product.ProductName == "Ikura")
-                {
-                    string image = "/ETRadeWPFAppDemo;component/Assets/Ikurajpeg.PNG";
+        //    foreach (var product in filteredProducts)
+        //    {
+        //        if (product.ProductName == "Ikura")
+        //        {
+        //            string image = "/ETRadeWPFAppDemo;component/Assets/Ikurajpeg.PNG";
 
-                    Image iimage = new Image()
-                    {
-                        Source = new BitmapImage(new Uri(image, UriKind.RelativeOrAbsolute)),
-                        Width = 380,
-                        Height = 880,
-                        Stretch = Stretch.Uniform,
-                        HorizontalAlignment = HorizontalAlignment.Left,
-                        VerticalAlignment = VerticalAlignment.Center,
-                    };
+        //            Image iimage = new Image()
+        //            {
+        //                Source = new BitmapImage(new Uri(image, UriKind.RelativeOrAbsolute)),
+        //                Width = 380,
+        //                Height = 880,
+        //                Stretch = Stretch.Uniform,
+        //                HorizontalAlignment = HorizontalAlignment.Left,
+        //                VerticalAlignment = VerticalAlignment.Center,
+        //            };
 
-                    Border border = new Border()
-                    {
-                        Width = 300,
-                        Height = 400,
-                        Background = Brushes.White,
-                        Margin = new Thickness(0, 0, 650, 0),
-                        CornerRadius = new CornerRadius(20),
-                        Child = iimage
-                    };
+        //            Border border = new Border()
+        //            {
+        //                Width = 300,
+        //                Height = 400,
+        //                Background = Brushes.White,
+        //                Margin = new Thickness(0, 0, 650, 0),
+        //                CornerRadius = new CornerRadius(20),
+        //                Child = iimage
+        //            };
 
-                    Line line = new Line()
-                    {
-                        VerticalAlignment = VerticalAlignment.Center,
-                        HorizontalAlignment = HorizontalAlignment.Center,
-                        Margin = new Thickness(170, 0, 0, 100),
-                        X1 = 100,
-                        Y1 = 0,
-                        X2 = 600,
-                        Y2 = 0,
-                        Stroke = Brushes.Black,
-                        StrokeThickness = 1
-                    };
+        //            Line line = new Line()
+        //            {
+        //                VerticalAlignment = VerticalAlignment.Center,
+        //                HorizontalAlignment = HorizontalAlignment.Center,
+        //                Margin = new Thickness(170, 0, 0, 100),
+        //                X1 = 100,
+        //                Y1 = 0,
+        //                X2 = 600,
+        //                Y2 = 0,
+        //                Stroke = Brushes.Black,
+        //                StrokeThickness = 1
+        //            };
 
-                    TextBox text = new TextBox()
-                    {
-                        Text = product.ProductName,
-                        FontFamily = new FontFamily("Franklin Gothic Medium"),
-                        FontSize = 24,
-                        Width = 400,
-                        Height = 90,
-                        HorizontalAlignment = HorizontalAlignment.Center,
-                        VerticalAlignment = VerticalAlignment.Center,
-                        Margin = new Thickness(100, 40, 0, 350),
-                        IsReadOnly = true,
-                        TextWrapping = TextWrapping.Wrap,
-                        BorderThickness = new Thickness(0)
-                    };
+        //            TextBox text = new TextBox()
+        //            {
+        //                Text = product.ProductName,
+        //                FontFamily = new FontFamily("Franklin Gothic Medium"),
+        //                FontSize = 24,
+        //                Width = 400,
+        //                Height = 90,
+        //                HorizontalAlignment = HorizontalAlignment.Center,
+        //                VerticalAlignment = VerticalAlignment.Center,
+        //                Margin = new Thickness(100, 40, 0, 350),
+        //                IsReadOnly = true,
+        //                TextWrapping = TextWrapping.Wrap,
+        //                BorderThickness = new Thickness(0)
+        //            };
 
-                    TextBox price = new TextBox()
-                    {
-                        Text = $"${product.UnitPrice:F2}",
-                        FontSize = 24,
-                        FontFamily = new FontFamily("Arial"),
-                        HorizontalAlignment = HorizontalAlignment.Center,
-                        VerticalAlignment = VerticalAlignment.Center,
-                        Width = 90,
-                        Height = 40,
-                        IsReadOnly = true,
-                        Margin = new Thickness(0, 0, 150, 0)
-                    };
+        //            TextBox price = new TextBox()
+        //            {
+        //                Text = $"${product.UnitPrice:F2}",
+        //                FontSize = 24,
+        //                FontFamily = new FontFamily("Arial"),
+        //                HorizontalAlignment = HorizontalAlignment.Center,
+        //                VerticalAlignment = VerticalAlignment.Center,
+        //                Width = 90,
+        //                Height = 40,
+        //                IsReadOnly = true,
+        //                Margin = new Thickness(0, 0, 150, 0)
+        //            };
 
-                    grdProducts.Children.Add(price);
+        //            grdProducts.Children.Add(price);
 
-                    grdProducts.Children.Add(text);
+        //            grdProducts.Children.Add(text);
 
-                    grdProducts.Children.Add(line);
+        //            grdProducts.Children.Add(line);
 
-                    grdProducts.Children.Add(border);
-                }
-            }
+        //            grdProducts.Children.Add(border);
+        //        }
+        //    }
 
-            //--------------------------
+        //    //--------------------------
 
-            //string image = "/ETRadeWPFAppDemo;component/Assets/Seafood.png";
-
-
-            //Image iimage = new Image()
-            //{
-            //    Source = new BitmapImage(new Uri(image, UriKind.RelativeOrAbsolute)),
-            //    Width = 380,
-            //    Height = 880,
-            //    Stretch = Stretch.Uniform,
-            //    HorizontalAlignment = HorizontalAlignment.Left,
-            //    VerticalAlignment = VerticalAlignment.Center,
-
-            //};
-
-            //Border border = new Border()
-            //{
-            //    Width = 300,
-            //    Height = 400,
-            //    Background = Brushes.White,
-            //    Margin = new Thickness(0, 0, 650, 0),
-            //    CornerRadius = new CornerRadius(20)
-            //};
-
-            //border.Child = iimage;
-
-            //Line line = new Line()
-            //{
-            //    VerticalAlignment = VerticalAlignment.Center,
-            //    HorizontalAlignment = HorizontalAlignment.Center,
-            //    Margin = new Thickness(170, 0, 0, 100),
-            //    X1 = 100,
-            //    Y1 = 0,
-            //    X2 = 600,
-            //    Y2 = 0,
-            //    Stroke = Brushes.Black,
-            //    StrokeThickness = 1
-            //};
-
-            //TextBox text = new TextBox()
-            //{
-            //    Text = "deneme text'i \r\n alt satıra geçildi.",
-            //    FontFamily = new FontFamily("Franklin Gothic Medium"),
-            //    FontSize = 24,
-            //    Width = 400,
-            //    Height = 90,
-            //    HorizontalAlignment = HorizontalAlignment.Center,
-            //    VerticalAlignment = VerticalAlignment.Center,
-            //    Margin = new Thickness(100, 40, 0, 350),
-            //    IsReadOnly = true,
-            //    TextWrapping = TextWrapping.Wrap,
-            //    BorderThickness = new Thickness(0)
-            //};
-
-            //TextBox price = new TextBox()
-            //{
-            //    Text = $"{product.QuantityPerUnit}                          {product.UnitPrice:F2}$ ",
-            //    FontSize = 24,
-            //    FontFamily = new FontFamily("Arial"),
-            //    HorizontalAlignment = HorizontalAlignment.Center,
-            //    VerticalAlignment = VerticalAlignment.Center,
-            //    Width = 90,
-            //    Height = 40,
-            //    IsReadOnly = true,
-            //    Margin = new Thickness(0, 0, 150, 0)
-            //};
+        //    //string image = "/ETRadeWPFAppDemo;component/Assets/Seafood.png";
 
 
+        //    //Image iimage = new Image()
+        //    //{
+        //    //    Source = new BitmapImage(new Uri(image, UriKind.RelativeOrAbsolute)),
+        //    //    Width = 380,
+        //    //    Height = 880,
+        //    //    Stretch = Stretch.Uniform,
+        //    //    HorizontalAlignment = HorizontalAlignment.Left,
+        //    //    VerticalAlignment = VerticalAlignment.Center,
 
-            //--------------------------------
-            Button buyButton = GetBuyButton();
+        //    //};
 
-            Border buyBorder = new Border()
-            {
-                Name = "brdrBuy",
-                VerticalAlignment = VerticalAlignment.Center,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                Width = 200,
-                Height = 50,
-                Background = Brushes.Aqua,
-                CornerRadius = new CornerRadius(20),
-                Margin = new Thickness(260, 200, 0, 0),
-                Child = buyButton
-            };
+        //    //Border border = new Border()
+        //    //{
+        //    //    Width = 300,
+        //    //    Height = 400,
+        //    //    Background = Brushes.White,
+        //    //    Margin = new Thickness(0, 0, 650, 0),
+        //    //    CornerRadius = new CornerRadius(20)
+        //    //};
 
-            //------ (+ , - ) kod bloğu------
+        //    //border.Child = iimage;
 
-        ProductsCounter productsCounter = new ProductsCounter(grdProducts);
+        //    //Line line = new Line()
+        //    //{
+        //    //    VerticalAlignment = VerticalAlignment.Center,
+        //    //    HorizontalAlignment = HorizontalAlignment.Center,
+        //    //    Margin = new Thickness(170, 0, 0, 100),
+        //    //    X1 = 100,
+        //    //    Y1 = 0,
+        //    //    X2 = 600,
+        //    //    Y2 = 0,
+        //    //    Stroke = Brushes.Black,
+        //    //    StrokeThickness = 1
+        //    //};
 
-            //-------------------------------
+        //    //TextBox text = new TextBox()
+        //    //{
+        //    //    Text = "deneme text'i \r\n alt satıra geçildi.",
+        //    //    FontFamily = new FontFamily("Franklin Gothic Medium"),
+        //    //    FontSize = 24,
+        //    //    Width = 400,
+        //    //    Height = 90,
+        //    //    HorizontalAlignment = HorizontalAlignment.Center,
+        //    //    VerticalAlignment = VerticalAlignment.Center,
+        //    //    Margin = new Thickness(100, 40, 0, 350),
+        //    //    IsReadOnly = true,
+        //    //    TextWrapping = TextWrapping.Wrap,
+        //    //    BorderThickness = new Thickness(0)
+        //    //};
+
+        //    //TextBox price = new TextBox()
+        //    //{
+        //    //    Text = $"{product.QuantityPerUnit}                          {product.UnitPrice:F2}$ ",
+        //    //    FontSize = 24,
+        //    //    FontFamily = new FontFamily("Arial"),
+        //    //    HorizontalAlignment = HorizontalAlignment.Center,
+        //    //    VerticalAlignment = VerticalAlignment.Center,
+        //    //    Width = 90,
+        //    //    Height = 40,
+        //    //    IsReadOnly = true,
+        //    //    Margin = new Thickness(0, 0, 150, 0)
+        //    //};
 
 
-            Border basketBorder = GetBasketBorder();
 
-            grdProducts.Children.Add(basketBorder);
-            grdProducts.Children.Add(buyBorder);
-            //--------------------------------
+        //    //--------------------------------
+        //    Border buyButton = GetBuyBorderr();
+
+        //    //Border buyBorder = new Border()
+        //    //{
+        //    //    Name = "brdrBuy",
+        //    //    VerticalAlignment = VerticalAlignment.Center,
+        //    //    HorizontalAlignment = HorizontalAlignment.Center,
+        //    //    Width = 200,
+        //    //    Height = 50,
+        //    //    Background = Brushes.Aqua,
+        //    //    CornerRadius = new CornerRadius(20),
+        //    //    Margin = new Thickness(260, 200, 0, 0),
+        //    //    Child = buyButton
+        //    //};
+
+        //    //------ (+ , - ) kod bloğu------
+
+        ////ProductsCounter productsCounter = new ProductsCounter(grdProducts);
+
+        //    //-------------------------------
 
 
-            //grdProducts.Children.Add(price);
+        //    //Border basketBorder = GetBasketBorder();
 
-            //grdProducts.Children.Add(text);
+        //    //grdProducts.Children.Add(basketBorder);
+        //    //grdProducts.Children.Add(buyButton);
+        //    //--------------------------------
 
-            //grdProducts.Children.Add(line);
 
-            //grdProducts.Children.Add(border);
+        //    //grdProducts.Children.Add(price);
 
-        }
+        //    //grdProducts.Children.Add(text);
+
+        //    //grdProducts.Children.Add(line);
+
+        //    //grdProducts.Children.Add(border);
+
+        //}
 
         //**********************
 
-        private static Button GetBuyButton()
-        {
-            Button buyButton = new Button()
-            {
-                Name = "btnBuy",
-                VerticalAlignment = VerticalAlignment.Center,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                Width = 180,
-                Height = 40,
-                
-                Background = Brushes.Aqua,
-                BorderThickness = new Thickness(0),
-                Content = "BUY",
-                
-            };
+        //private static Button GetBuyButton()
+        //{
+        //    Border border = new Border()
+        //    {
+        //        Width = 200,
+        //        Height = 50,
+        //        Background = Brushes.Aqua,
+        //        CornerRadius = new CornerRadius(20),        
+        //        Margin = new Thickness(260, 300, 0, 0),
+        //    };
 
-            return buyButton;
-        }
+        //    Button buyButton = new Button()
+        //    {
+        //        Name = "btnBuy",
+        //        Margin = new Thickness(260, 300, 0, 0),
+        //        Width = 180,
+        //        Height = 40,
+                
+        //        Background = Brushes.Aqua,
+        //        BorderThickness = new Thickness(0),
+        //        Content = "BUY"
+                
+        //    };
+
+            
+
+        //    return buyButton;
+        //}
 
 
         private Border GetBasketBorder()
@@ -1651,7 +1695,7 @@ namespace ETRadeWPFAppDemo
                 Content = "Add to card"
             };
 
-            basketButton.Click += BasketButton_Click;
+            basketButton.Click += AddToCardButton_Click;
 
             Border basketBorder = new Border()
             {
@@ -1668,27 +1712,54 @@ namespace ETRadeWPFAppDemo
             return basketBorder;
         }
 
-        private void BasketButton_Click(object sender, RoutedEventArgs e)
+        private Border GetBuyBorderr()
         {
-            grdMain.Children.Clear();
-
-            List<UIElement> elementsToKeep = ElementsToKeep();
-
-            var zIndex = 1;
-            foreach (var element in elementsToKeep)
+            Button buyButton = new Button()
             {
-                grdMain.Children.Add(element);
+                Name = "btnBuy",
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Width = 180,
+                Height = 40,
+                Background = Brushes.Aqua,
+                BorderThickness = new Thickness(0),
+                Content = "Buy"
+            };
 
-                Panel.SetZIndex(element, zIndex++);
-            }
+            buyButton.Click += AddToCardButton_Click;
 
-            Grid grdProducts = ProductsDetailsGrid();
-
-
-            
+            Border buyBorder = new Border()
+            {
+                Name = "brdrBasket",
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Width = 200,
+                Height = 50,
+                Background = Brushes.Aqua,
+                CornerRadius = new CornerRadius(20),
+                Margin = new Thickness(260, 300, 0, 0),
+                Child = buyButton
+            };
+            return buyBorder;
         }
 
+        private void AddToCardButton_Click(object sender, RoutedEventArgs e)
+        {
 
+            //Grid orderProductsGrd = ProductsDetailsGrid();
+
+            //orderProductsGrd.Visibility = Visibility.Collapsed;
+
+            List<Product> orderProducts = new List<Product>();
+
+            if (TagValue != null)
+            {
+                Product product = TagValue as Product;
+                orderProducts.Add(product);
+
+            }
+
+        }
 
         //**************************
 
@@ -1785,7 +1856,8 @@ namespace ETRadeWPFAppDemo
                     Width = 280,
                     Height = 230,
                     BorderThickness = new Thickness(0),
-                    Background = new SolidColorBrush(Colors.White)
+                    Background = new SolidColorBrush(Colors.White),
+                    Tag = product
                 };
 
                 button.Click += ProductDetails_Click;
@@ -2044,7 +2116,22 @@ namespace ETRadeWPFAppDemo
 
         private void ButtonBasket_Click(object sender, RoutedEventArgs e)
         {
-            
+            grdMain.Children.Clear();
+
+            List<UIElement> elementsToKeep = ElementsToKeep();
+
+            var zIndex = 1;
+            foreach (var element in elementsToKeep)
+            {
+                grdMain.Children.Add(element);
+
+                Panel.SetZIndex(element, zIndex++);
+            }
+
+            //List<Product> orderProducts = new List<Product>();
+
+            //grdMain.Children.Add(border);
+
         }
 
         //******* ürün miktarını arttırıp azaltan kod bloğu****************
@@ -2268,6 +2355,23 @@ namespace ETRadeWPFAppDemo
         //---------------------------------------------------------------------------------------
 
       
+
+        //----sepet üzerindeki sipariş sayısı----------
+
+        //public Label GetLabel()
+        //{
+            
+        //    Label label = new Label()
+        //    {
+        //        Width = 20, Height = 20,
+        //        VerticalAlignment = VerticalAlignment.Top, HorizontalAlignment = HorizontalAlignment.Right,
+        //        Background = Brushes.Khaki,
+        //        Content = 0
+        //    };
+        //    return label;
+
+
+        //}
 
     }
 }

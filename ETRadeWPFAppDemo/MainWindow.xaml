@@ -26,19 +26,19 @@
 
 
         <Storyboard x:Key="PanelOpen">
-            
+
         </Storyboard>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
     </Window.Resources>
 
     <Window.Triggers>
@@ -52,8 +52,8 @@
     </Window.Triggers>
 
 
-    
-    
+
+
     <Grid x:Name="grdMain" Background="LightGray">
 
         <!-- message -->
@@ -69,19 +69,27 @@
                     <TextBlock Text="{Binding ProductName}"/>
                 </DataTemplate>
             </Grid.Resources>
-            
+
             <ListBox x:Name="ListProductByName" ItemTemplate="{StaticResource ProductTemplate}" />
 
 
         </Grid>
-       
-        
-        
+
+
+
 
 
         <!-- Grid'e satır ekleyelim -->
 
         <Grid x:Name="grdHorizontal" Height="70" VerticalAlignment="Top" Background="#FFFFFEFE" Panel.ZIndex="1">
+
+
+
+
+
+
+
+
             <TextBlock Text="E-Shopping" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="70,0,0,0" FontSize="22">
 
             </TextBlock>
@@ -101,8 +109,20 @@
                 </Button>
             </Border>
 
-            <Button x:Name="ButtonBasket" Height="30" Width="40"  Margin="490.35,8,0,0" Background="White" BorderBrush="Transparent" BorderThickness="0" Click="ButtonBasket_Click">
-                <materialDesign:PackIcon Kind="Cart"  Height="30" Width="30" Foreground="Red"/>
+            <Button x:Name="ButtonBasket" Height="30" Width="40" Margin="490.35,8,0,0" Background="White" BorderBrush="Transparent" BorderThickness="0" Click="ButtonBasket_Click">
+                <StackPanel>
+                    <Grid>
+                        <materialDesign:PackIcon Kind="Cart" Height="30" Width="30" Foreground="Red"/>
+
+                        <Label x:Name="basketButtonLabel" Width="20" Height="Auto" Content="0" HorizontalAlignment="Stretch" Margin="4,-4,0,0">
+
+                        </Label>
+
+                    </Grid>
+
+                </StackPanel>
+
+
 
             </Button>
 
@@ -179,13 +199,13 @@
         </Grid>
 
 
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
 
     </Grid>
 </Window>

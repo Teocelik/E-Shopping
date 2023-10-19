@@ -40,7 +40,13 @@ namespace ETRadeWPFAppDemo.DAL
         }
 
 
-
+        public List<Product> GetAllProducts()
+        {
+            using(NorthwindContext context = new NorthwindContext())
+            {
+                return context.Products.ToList();
+            }
+        }
 
 
 
